@@ -22,13 +22,17 @@ function App() {
   }, [items]);
 
   const newItem = () => {
-    if (item !== '') {
+    if (item.trim() !== '') {
       const newItem = {
         id: uuidv4(),
         item,
         color: randomColor({
           luminosity: 'light',
         }),
+        defaultPos: {
+          x: 100,
+          y: -300,
+        },
       };
 
       setItems(items => [...items, newItem]);
@@ -79,7 +83,7 @@ function App() {
       {items.map((item, index) => {
         return (
           <Draggable
-            defaultPosition={{ x: 14, y: -750 }}
+            defaultPosition={item.defaultPos}
             key={index}
             onStop={(_, data) => {
               updatePosition(data, index);
