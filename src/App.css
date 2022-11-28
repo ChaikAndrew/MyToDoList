@@ -48,24 +48,54 @@
 .todo__item {
   position: absolute;
   cursor: move;
-  width: 190px;
+  width: 250px;
   min-height: 50px;
   color: black;
   padding: 1em;
   border-radius: 5px;
 }
 
-.delete {
-  color: #222222;
+.delete,
+.edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2e2e2e;
   position: absolute;
-  right: 5px;
-  top: 5px;
+
   background: none;
   border: none;
 }
 
+.delete {
+  right: 5px;
+  bottom: 5px;
+}
 .delete:hover,
 .delete:focus {
-  color: rgb(190, 0, 0);
+  background-color: rgb(251, 99, 99);
+  border-radius: 10px;
   cursor: pointer;
+}
+
+.icon_delete {
+  width: 20px;
+  height: 20px;
+}
+
+.edit {
+  right: 5px;
+  top: 5px;
+}
+
+.edit:hover,
+.edit:focus {
+  background-color: rgba(145, 251, 152, 0.483);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.icon_edit {
+  width: 18px;
+  height: 18px;
 }

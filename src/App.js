@@ -10,6 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { customToast } from './helper';
 
 import { FcCheckmark } from 'react-icons/fc';
+import { CgTrash } from 'react-icons/cg';
+import { FiEdit3 } from 'react-icons/fi';
 
 function App() {
   const [item, setItem] = useState('');
@@ -21,6 +23,10 @@ function App() {
     localStorage.setItem('items', JSON.stringify(items));
   }, [items]);
 
+  function randomPosition(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
   const newItem = () => {
     if (item.trim() !== '') {
       const newItem = {
@@ -30,8 +36,8 @@ function App() {
           luminosity: 'light',
         }),
         defaultPos: {
-          x: 100,
-          y: -300,
+          x: randomPosition(5, 20),
+          y: randomPosition(-500, -300),
         },
       };
 
@@ -92,7 +98,10 @@ function App() {
             <div className="todo__item" style={{ backgroundColor: item.color }}>
               {`${item.item}`}
               <button className="delete" onClick={() => deleteNode(item.id)}>
-                X
+                <CgTrash className="icon_delete" />
+              </button>
+              <button className="edit" onClick={() => deleteNode(item.id)}>
+                <FiEdit3 className="icon_edit" />
               </button>
             </div>
           </Draggable>
