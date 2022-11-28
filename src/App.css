@@ -51,7 +51,8 @@
   width: 250px;
   min-height: 50px;
   color: black;
-  padding: 1em;
+  padding: 10px;
+  padding-right: 30px;
   border-radius: 5px;
 }
 
@@ -76,7 +77,6 @@
 .delete:focus {
   background-color: rgb(251, 99, 99);
   border-radius: 10px;
-  cursor: pointer;
 }
 
 .icon_delete {
@@ -93,10 +93,4 @@
 .edit:focus {
   background-color: rgba(145, 251, 152, 0.483);
   border-radius: 10px;
-  cursor: pointer;
-}
-
-.icon_edit {
-  width: 18px;
-  height: 18px;
 }
