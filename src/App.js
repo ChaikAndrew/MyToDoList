@@ -52,6 +52,7 @@ function App() {
   };
 
   const deleteNode = id => {
+    console.log('id', id);
     setItems(items.filter(item => item.id !== id));
     customToast(`Note has been deleted 🗑`, 'error');
     return;
@@ -73,40 +74,55 @@ function App() {
   return (
     <div className="App">
       <div className="wrapper">
-        <input
-          value={item}
-          type="text"
-          className="input"
-          placeholder="Enter your note..."
-          onChange={e => setItem(e.target.value)}
-          onKeyPress={e => keyPress(e)}
-        ></input>
-        <button className="enter" onClick={newItem}>
-          <FcCheckmark className="btn__add" />
-        </button>
-      </div>
+        <div className="form">
+          <input
+            value={item}
+            type="text"
+            className="input"
+            placeholder="Enter your note..."
+            onChange={e => setItem(e.target.value)}
+            onKeyPress={e => keyPress(e)}
+          />
+          <button className="enter" onClick={newItem}>
+            <FcCheckmark className="btn__add" />
+          </button>
+        </div>
 
-      {items.map((item, index) => {
-        return (
-          <Draggable
-            defaultPosition={item.defaultPos}
-            key={index}
-            onStop={(_, data) => {
-              updatePosition(data, index);
-            }}
-          >
-            <div className="todo__item" style={{ backgroundColor: item.color }}>
-              {`${item.item}`}
-              <button className="delete" onClick={() => deleteNode(item.id)}>
-                <CgTrash className="icon_delete" />
-              </button>
-              <button className="edit" onClick={() => deleteNode(item.id)}>
-                <FiEdit3 className="icon_edit" />
-              </button>
-            </div>
-          </Draggable>
-        );
-      })}
+        <div className="todo__list">
+          {items.map((item, index) => {
+            return (
+              <div className="item-container" key={index}>
+                <Draggable
+                  defaultPosition={{ x: 0, y: 0 }}
+                  onStop={(_, data) => {
+                    updatePosition(data, index);
+                  }}
+                >
+                  <div
+                    className="todo__item"
+                    style={{ backgroundColor: item.color }}
+                  >
+                    {`${item.item}`}
+
+                    <button
+                      className="delete"
+                      onClick={() => deleteNode(item.id)}
+                    >
+                      <CgTrash className="icon_delete" />
+                    </button>
+                    <button
+                      className="edit"
+                      onClick={() => deleteNode(item.id)}
+                    >
+                      <FiEdit3 className="icon_edit" />
+                    </button>
+                  </div>
+                </Draggable>
+              </div>
+            );
+          })}
+        </div>
+      </div>
       <ToastContainer />
     </div>
   );
