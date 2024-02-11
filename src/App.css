@@ -78,6 +78,7 @@
 
 .todo__item {
   position: absolute;
+  padding: 5px;
   cursor: move;
   width: 100%;
   height: 100%;

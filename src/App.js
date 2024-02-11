@@ -110,12 +110,12 @@ function App() {
                     >
                       <CgTrash className="icon_delete" />
                     </button>
-                    <button
+                    {/* <button
                       className="edit"
                       onClick={() => deleteNode(item.id)}
                     >
                       <FiEdit3 className="icon_edit" />
-                    </button>
+                    </button> */}
                   </div>
                 </Draggable>
               </div>
