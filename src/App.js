@@ -11,7 +11,7 @@ import { customToast } from './helper';
 
 import { FcCheckmark } from 'react-icons/fc';
 import { CgTrash } from 'react-icons/cg';
-import { FiEdit3 } from 'react-icons/fi';
+// import { FiEdit3 } from 'react-icons/fi';
 
 function App() {
   const [item, setItem] = useState('');
